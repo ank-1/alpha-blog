@@ -1,2 +1,47 @@
-@import "bootstrap-sprockets";
+$navbar-default-bg: white;
+#logo{
+  color: white;
+  font-size: 20px;
+  float: right;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.center{
+  text-align: center;
+}
+.jumbotron{
+  background-image: asset-url('homepage');
+  background-size:  cover;
+  height: 600px;
+}
+.jumbotron h1{
+  font-weight: bold;
+  font-size: 50px;
+  font-style: normal;
+  color: #011A30;
+  letter-spacing: -1px;
+}
+
+.footer{
+  color: blue;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid black;
+}
+
+.footer small{
+  float: left;
+}
+.footer nav{
+  float: right;
+}
+.footer hover{
+  color: black;
+}
+
+
+
+
+
 @import "bootstrap";
