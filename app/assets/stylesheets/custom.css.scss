@@ -10,12 +10,18 @@ $navbar-default-bg: white;
 .center{
   text-align: center;
 }
+
 .jumbotron{
   background-image: asset-url('homepage');
   background-size:  cover;
-  height: 600px;
+  height: 1000px;
 }
+
+
+
+
 .jumbotron h1{
+  margin-top: 100px;
   font-weight: bold;
   font-size: 50px;
   font-style: normal;
@@ -40,7 +46,22 @@ $navbar-default-bg: white;
   color: black;
 }
 
+#link1{
+  color: white;
+}
+#navbarDropdown{
+  color: white;
+}
 
+#link3{
+  color: white;
+}
+.align-center{
+  align-items:  center;
+  margin-bottom: 20px;
+  margin-top:20px;
+
+}
 
 
 
