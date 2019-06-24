@@ -8,6 +8,13 @@
               <div class="description" >
                 <%= truncate(article.description,length: 100) %>
               </div>
+              <div class="user-mata-data">
+                  <small>
+                    Created By:  <%= article.user.username if article.user %>,
+                    created at :<%=time_ago_in_words(article.created_at) %> ago,
+                    updated at: <%=time_ago_in_words(article.updated_at) %> ago
+                  </small>
+              </div>
           <div class="buttons">
             <%= link_to "edit this article" , edit_article_path(article),class: "btn btn-warning btn-sm" %>
             <%= link_to "delete this article", article_path(article),method: :delete,class: "btn btn-danger btn-sm", data:{confirm: "Are you sure you want to delete this article?"} %>
