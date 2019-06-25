@@ -2,6 +2,13 @@
   <div class="card bg-light" align="center" style="padding:15px;">
     <h3><strong>Description</strong> </h3>
     <%= simple_format(@article.description) %>
+    <div class="user-mata-data">
+        <small>
+          Created By:  <%= @article.user.username if @article.user %>,
+          created at :<%=time_ago_in_words(@article.created_at) %> ago,
+          updated at: <%=time_ago_in_words(@article.updated_at) %> ago
+        </small>
+    </div>
     <div>
       <%= link_to "back to articles listing", articles_path,class: "btn btn-sm btn-primary" %>
       <%= link_to "edit this article" , edit_article_path(@article),class: "btn btn-warning btn-sm" %>
