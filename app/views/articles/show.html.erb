@@ -1,5 +1,10 @@
 <h2 align="center"><strong> Title:  <%= @article.title %> </strong></h2>
   <div class="card bg-light" align="center" style="padding:15px;">
+    <% if @article.user %>
+    <p>Created by:</p>
+    <%= gravatar_for @article.user %>
+    <%= @article.user.username %>
+    <% end %>
     <h3><strong>Description</strong> </h3>
     <%= simple_format(@article.description) %>
     <div class="user-mata-data">
