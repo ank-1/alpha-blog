@@ -10,6 +10,11 @@
         <!-- <a class="nav-link" href="#">Link</a> -->
         <%= link_to "Articles",articles_path,class:"nav-link",id:"link1" %>
       </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to "Users",users_path,class:"nav-link",id:"link1" %>
+      </li>
+      <% if logged_in? %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Actions
@@ -18,12 +23,12 @@
           <%= link_to "Create new Article",new_article_path,class: "dropdown-item" %>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
-          <% if logged_in? %>
-              <%= link_to "Log out",logout_path,method: :delete ,class:"dropdown-item" %>
-          <% end %>
-          </div>
+        </div>
       </li>
+      <% end %>
      </ul>
+     <ul class="navbar-nav ml-auto">
+
     <% if !logged_in? %>
         <div class="nav-item">
           <%= link_to "Log in",login_path,class:"nav-link btn btn-primary btn-sm"%>
@@ -31,7 +36,20 @@
         <div class="nav-item" style="margin-left:10px">
           <%= link_to "Sign up",signup_path,class:"nav-link btn btn-primary btn-sm"%>
         </div>
-    <% end %>
+    <% else %>
 
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle"  style="margin-left:80px" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profile
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Edit your profile",edit_user_path(current_user),class: "dropdown-item" %>
+            <%= link_to "View your profile",user_path(current_user),class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+                <%= link_to "Log out",logout_path,method: :delete ,class:"dropdown-item" %>
+            </div>
+        </li>
+    <% end %>
+</ul>
   </div>
-</nav
+</nav>
