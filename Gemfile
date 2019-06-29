@@ -10,6 +10,8 @@ gem 'jquery-rails'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'bcrypt', '~> 3.1.7'
+gem 'will_paginate','3.1.7'
+gem 'bootstrap-will_paginate','1.0.0'
 
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

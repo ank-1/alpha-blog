@@ -1,2 +1,8 @@
   <h1 align="center"><strong>Listing all articles</strong></h1>
+  <div align="center">
+    <%= will_paginate %>
+  </div>
 <%= render 'articles' , obj: @articles%>
+<div align="center" class="digg_pagination">
+  <%= will_paginate @articles  %>
+</div>

@@ -1,4 +1,4 @@
-<h1 align="center"><strong>Welcome to <%=@user.username%>'s' page</strong></h1>
+<h1 align="center"><strong>Welcome to <%=@user.username%>'s page</strong></h1>
 <div class="row">
   <div class="col-sm-4 offset-sm-5 image-circle">
     <%= gravatar_for @user ,size: 150 %>
@@ -6,4 +6,6 @@
 
 </div>
 <h4 align="center"><%= @user.username %>'s articles</h4>
-  <%= render 'articles/articles',obj:@user.articles %>
+<%= will_paginate @user_articles %>
+  <%= render 'articles/articles',obj:@user_articles %>
+  <%= will_paginate @user_articles %>
