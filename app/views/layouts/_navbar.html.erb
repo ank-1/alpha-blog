@@ -26,30 +26,48 @@
         </div>
       </li>
       <% end %>
-     </ul>
-     <ul class="navbar-nav ml-auto">
 
-    <% if !logged_in? %>
-        <div class="nav-item">
-          <%= link_to "Log in",login_path,class:"nav-link btn btn-primary btn-sm"%>
-        </div>
-        <div class="nav-item" style="margin-left:10px">
-          <%= link_to "Sign up",signup_path,class:"nav-link btn btn-primary btn-sm"%>
-        </div>
-    <% else %>
 
-        <li class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle"  style="margin-left:80px" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Your  Profile <%= "Admin" if current_user.admin? %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Edit your profile",edit_user_path(current_user),class: "dropdown-item" %>
-            <%= link_to "View your profile",user_path(current_user),class: "dropdown-item" %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "All categories", categories_path,class:"dropdown-item" %>
+          <% Category.all.each do |category| %>
+          <%= link_to "#{category.name}",category_path(category),class: "dropdown-item" %>
+          <% end %>
+          <% if logged_in? && current_user.admin? %>
             <div class="dropdown-divider"></div>
-                <%= link_to "Log out",logout_path,method: :delete ,class:"dropdown-item" %>
+            <%= link_to "Create new category",new_category_path,class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
+     </ul>
+
+
+     <ul class="navbar-nav ml-auto">
+        <% if !logged_in? %>
+            <div class="nav-item">
+              <%= link_to "Log in",login_path,class:"nav-link btn btn-primary btn-sm"%>
             </div>
-        </li>
-    <% end %>
-</ul>
+            <div class="nav-item" style="margin-left:10px">
+              <%= link_to "Sign up",signup_path,class:"nav-link btn btn-primary btn-sm"%>
+            </div>
+        <% else %>
+
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle"  style="margin-left:80px" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Your  Profile <%= "Admin" if current_user.admin? %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Edit your profile",edit_user_path(current_user),class: "dropdown-item" %>
+                <%= link_to "View your profile",user_path(current_user),class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                    <%= link_to "Log out",logout_path,method: :delete ,class:"dropdown-item" %>
+                </div>
+            </li>
+        <% end %>
+     </ul>
   </div>
 </nav>
