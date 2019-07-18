@@ -11,9 +11,19 @@ $navbar-default-bg: white;
   font-size: 200%;
 }
 
+.badge{
+  text-transform: uppercase;
+  font-weight: bolder;
+  background-color: skyblue;
+}
+.input_checkbox{
+  width: auto !important;
+}
+
 .listing{
   list-style: none;
-
+  text-transform: capitalize;
+  font-weight: bold;
   padding-left: 0;
 }
 .float-left{

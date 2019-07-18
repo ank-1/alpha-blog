@@ -7,6 +7,7 @@
     <% end %>
     <h3><strong>Description</strong> </h3>
     <%= simple_format(@article.description) %>
+
     <div class="user-mata-data">
         <small>
           Created By:  <%= @article.user.username if @article.user %>,
@@ -14,6 +15,10 @@
           updated at: <%=time_ago_in_words(@article.updated_at) %> ago
         </small>
     </div>
+
+    <% if @article.categories.any? %>
+      <p><small>Categories : </small><%=render @article.categories %></p>
+    <% end %>
     <div>
       <%= link_to "back to articles listing", articles_path,class: "btn btn-sm btn-primary" %>
       <% if logged_in? && current_user == @article.user %>

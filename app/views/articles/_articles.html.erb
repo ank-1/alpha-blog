@@ -13,6 +13,9 @@
                   updated at: <%=time_ago_in_words(article.updated_at) %> ago
                 </small>
             </div>
+            <% if article.categories.any? %>
+              <p><small>Categories :</small> <%=render article.categories %></p>
+            <% end %>
             <% if logged_in? && (current_user == article.user || current_user.admin?)   %>
               <div class="buttons">
                 <%= link_to "edit this article" , edit_article_path(article),class: "btn btn-warning btn-sm" %>
