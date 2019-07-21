@@ -1,6 +1,4 @@
 <h1 align="center"><strong>Listing all articles of <%= @category.name %></strong></h1>
-<% if logged_in? and current_user.admin? %>
-
 <div  align="center">
   <%= link_to "Edit this category",edit_category_path(@category) %>
 </div>
